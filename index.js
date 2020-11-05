@@ -19,7 +19,7 @@ function createCard(i){
 
     let img = document.createElement("img");
     img.setAttribute("src", "https://via.placeholder.com/500x280.png");
-    img.className += "card-img-top img-fluid";
+    img.className += "card-img-top";
     img.setAttribute("alt", "placeholder");
     card.append(img);
 
