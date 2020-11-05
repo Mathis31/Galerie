@@ -1,7 +1,23 @@
 var container = document.getElementById('container');
 
+function loadDistantFile(url) {
+    return new Promise(function (resolve, reject) {
+        $.getJSON(url)
+            .done(function (data) {
+                resolve(data);
+            })
+            .fail(function () {
+                reject(Error('Impossible d\'ouvrir le fichier ' + url));
+            })
+        }
+    );
+}
 
-function createCard(i){
+var toto = loadDistantFile("https://compassionate-lichterman-736604.netlify.app/index.json");
+
+console.log(toto);
+
+/*function createCard(i){
     
     let div = document.createElement("div");
     div.className += "col-12 col-sm-6 col-lg-4 col-xl-3";
@@ -35,4 +51,4 @@ function createCard(i){
 for(let i = 0; i<6; i++){
     let div = createCard(i);
     container.append(div);
-}
+}*/
