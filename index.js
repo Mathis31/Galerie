@@ -21,27 +21,28 @@ const text = [
 function createCard(i){
     
     let div = document.createElement("div");
-    div.className += "card col-12 col-md-6 col-lg-3 mt-5 mb-5 p-0 d-inline-block";
+    div.className += "col-12 col-sm-6 col-lg-4 col-xl-3";
 
-    if(i != 0 && i != 3){
-        div.className += " offset-lg-1";
-    }
+    let card = document.createElement("div");
+    card.className += "card mb-4";
 
     let img = document.createElement("img");
     img.setAttribute("src", arrayImg[i]);
-    img.setAttribute("width", "100%");
-    img.setAttribute("height", "200px");
     img.className += "card-img-top";
-    div.append(img);
+    img.setAttribute("width", "500px !important");
+    img.setAttribute("height", "280px !important");
+    card.append(img);
 
     let divBody = document.createElement("div");
     divBody.className += "card-body";
+    card.append(divBody);
 
     let p = document.createElement('p');
     p.className += "card-text p-3";
     p.textContent = text[i].substring(0,100);
+    card.append(p);
 
-    div.append(p);
+    div.append(card);
 
     return div;
 
