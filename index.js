@@ -1,6 +1,6 @@
 var container = document.getElementById('container');
 
-async function loadJsonFile(url) {
+function loadJsonFile(url) {
     return new Promise(function (resolve, reject) {
         $.getJSON(url)
             .done(function (data) {
@@ -13,9 +13,15 @@ async function loadJsonFile(url) {
     );
 }
 
-let toto = await loadJsonFile("https://compassionate-lichterman-736604.netlify.app/index.json");
+async function get(){
 
-console.log(toto);
+    let toto = await loadJsonFile("https://compassionate-lichterman-736604.netlify.app/index.json");
+
+    return toto;
+}
+
+
+console.log(get());
 
 /*function createCard(i){
     
