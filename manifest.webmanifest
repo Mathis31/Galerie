@@ -1,5 +1,7 @@
 {
+    "start_url": "https://compassionate-lichterman-736604.netlify.app/",
     "name": "Galerie PWA",
+    "display": "standalone",
     "icons": [
         {
             "src": "https://via.placeholder.com/72.png",
