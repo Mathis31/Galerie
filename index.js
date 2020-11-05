@@ -11,7 +11,7 @@ function loadJsonFile(url) {
     );
 }
 
-loadJsonFile("https://compassionate-lichterman-736604.netlify.app/index.json").then(datas => {
+loadJsonFile("https://compassionate-lichterman-736604.netlify.app/GalerieRepos/index.json").then(datas => {
     var container = document.getElementById('container');
     for(let i = 0; i<6; i++){
         let div = createCard(datas, i);
