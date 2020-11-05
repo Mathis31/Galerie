@@ -4,7 +4,7 @@ function loadJsonFile(url) {
     return new Promise(function (resolve, reject) {
         $.getJSON(url)
             .done(function (data) {
-                resolve(data);
+                resolve(data).then(data => resolve.json(data));
             })
             .fail(function () {
                 reject(Error('Impossible d\'ouvrir le fichier ' + url));
