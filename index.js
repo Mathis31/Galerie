@@ -1,6 +1,6 @@
 var container = document.getElementById('container');
 
-function loadJsonFile(url) {
+async function loadJsonFile(url) {
     return new Promise(function (resolve, reject) {
         $.getJSON(url)
             .done(function (data) {
@@ -13,40 +13,42 @@ function loadJsonFile(url) {
     );
 }
 
-function createCard(i){
+let toto = await loadJsonFile("https://compassionate-lichterman-736604.netlify.app/index.json");
 
-    loadDistantFile("https://compassionate-lichterman-736604.netlify.app/index.json").then(res => {
-        let div = document.createElement("div");
-        div.className += "col-12 col-sm-6 col-lg-4 col-xl-3";
+console.log(toto);
 
-        let card = document.createElement("div");
-        card.className += "card mb-4";
+/*function createCard(i){
+    
+    let div = document.createElement("div");
+    div.className += "col-12 col-sm-6 col-lg-4 col-xl-3";
 
-        let img = document.createElement("img");
-        img.setAttribute("src", res.ig);
-        img.setAttribute("width", "500");
-        img.setAttribute("height", "280");
-        img.className += "card-img-top img-fluid";
-        img.setAttribute("alt", "placeholder");
-        card.append(img);
+    let card = document.createElement("div");
+    card.className += "card mb-4";
 
-        let divBody = document.createElement("div");
-        divBody.className += "card-body";
-        card.append(divBody);
+    let img = document.createElement("img");
+    img.setAttribute("src", "https://via.placeholder.com/500x280.png");
+    img.setAttribute("width", "500");
+    img.setAttribute("height", "280");
+    img.className += "card-img-top img-fluid";
+    img.setAttribute("alt", "placeholder");
+    card.append(img);
 
-        let p = document.createElement('p');
-        p.className += "card-text p-3";
-        p.textContent = res.text[i].substring(0,100);
-        card.append(p);
+    let divBody = document.createElement("div");
+    divBody.className += "card-body";
+    card.append(divBody);
 
-        div.append(card);
+    let p = document.createElement('p');
+    p.className += "card-text p-3";
+    p.textContent = text[i].substring(0,100);
+    card.append(p);
 
-        return div;
-    });
+    div.append(card);
+
+    return div;
 
 }
 
 for(let i = 0; i<6; i++){
     let div = createCard(i);
     container.append(div);
-}
+}*/
