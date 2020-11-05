@@ -13,7 +13,7 @@ function loadDistantFile(url) {
     );
 }
 
-var toto = loadDistantFile("https://compassionate-lichterman-736604.netlify.app/index.json");
+var toto = loadDistantFile("https://compassionate-lichterman-736604.netlify.app/index.json").then(res => console.log(res));
 
 console.log(toto);
 
