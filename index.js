@@ -14,12 +14,12 @@ function loadJsonFile(url) {
 loadJsonFile("https://compassionate-lichterman-736604.netlify.app/index.json").then(datas => {
     var container = document.getElementById('container');
     for(let i = 0; i<6; i++){
-        let div = createCard(datas);
+        let div = createCard(datas, i);
         container.append(div);
     }
 })
 
-function createCard(datas){
+function createCard(datas, i){
     
     let div = document.createElement("div");
     div.className += "col-12 col-sm-6 col-lg-4 col-xl-3";
