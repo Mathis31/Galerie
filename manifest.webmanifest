@@ -1,0 +1,45 @@
+{
+    "name": "Galerie PWA",
+    "icons": [
+        {
+            "src": "https://via.placeholder.com/72.png",
+            "sizes": "72x72",
+            "type": "image/png"
+        },
+        {
+            "src": "https://via.placeholder.com/96.png",
+            "sizes": "96x96",
+            "type": "image/png"
+        },
+        {
+            "src": "https://via.placeholder.com/150.png",
+            "sizes": "150x150",
+            "type": "image/png"
+        },
+        {
+            "src": "https://via.placeholder.com/200.png",
+            "sizes": "200x200",
+            "type": "image/png"
+        },
+        {
+            "src": "https://via.placeholder.com/250.png",
+            "sizes": "250x250",
+            "type": "image/png"
+        },
+        {
+            "src": "https://via.placeholder.com/300.png",
+            "sizes": "300x300",
+            "type": "image/png"
+        },
+        {
+            "src": "https://via.placeholder.com/400.png",
+            "sizes": "400x400",
+            "type": "image/png"
+        },
+        {
+            "src": "https://via.placeholder.com/500.png",
+            "sizes": "500x500",
+            "type": "image/png"
+        }
+    ]
+}
