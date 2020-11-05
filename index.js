@@ -28,10 +28,10 @@ function createCard(datas, i){
     card.className += "card mb-4";
 
     let img = document.createElement("img");
-    img.setAttribute("src", datas.img);
+    img.setAttribute("src", datas.img[i]);
     img.setAttribute("width", "500");
     img.setAttribute("height", "280");
-    img.className += "card-img-top img-fluid";
+    img.className += "card-img-top";
     img.setAttribute("alt", "placeholder");
     card.append(img);
 
