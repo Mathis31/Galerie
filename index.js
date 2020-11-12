@@ -54,14 +54,12 @@ function createCard(element){
 }
 
 
-console.log('cc');
 
 window.addEventListener("DOMContentLoaded", (event) => {
     fetch("https://compassionate-lichterman-736604.netlify.app/GalerieRepos/index.json")
     .then(res => {return res.json()})
     .then(datas =>
     {
-        console.log(datas);
         var container = document.getElementById('container');
         datas.forEach(element => {
             let div = createCard(element);
