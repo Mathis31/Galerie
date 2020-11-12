@@ -28,6 +28,17 @@ function createCard(element){
 
     let divBody = document.createElement("div");
     divBody.className += "card-body";
+
+    let spanAuthor = document.createElement('span');
+    spanAuthor.textContent = element.author;
+
+    divBody.append(spanAuthor);
+
+    let spanUpdated = document.createElement('span');
+    spanUpdated.textContent = element.updated;
+
+    divBody.append(spanUpdated);
+
     card.append(divBody);
 
     let p = document.createElement('p');
