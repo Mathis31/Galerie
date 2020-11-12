@@ -57,7 +57,7 @@ function createCard(element){
 
 window.addEventListener("DOMContentLoaded", (event) => {
     fetch("https://compassionate-lichterman-736604.netlify.app/GalerieRepos/index.json")
-    .then(res => {return res.json()})
+    .then(res => res.json())
     .then(datas =>
     {
         var container = document.getElementById('container');
