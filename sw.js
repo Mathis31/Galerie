@@ -4,13 +4,13 @@ self.addEventListener('fetch', (e) => {
         e.respondWith(
             fetch(e.request).then((response) => {
                 return response.json().then((json) => {
-                    return new Response(JSON.stringify([{
-                        "url":"https://via.placeholder.com/500x280.png",
-                        "description":"Photo",
-                        "author":"Anonyme",
-                        "updated":"2020-10-10",
-                        "created":"2020-10-10"
-                    }]));
+                    const jsonFormatted = json.map((j) => ({
+                        url: j.url,
+                        description: j.description,
+                        updated: j.updated,
+                        author: j.author
+                    }))
+                    return new Response(JSON.stringify(jsonFormatted));
                 })
             })
         )
