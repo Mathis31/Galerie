@@ -12,6 +12,7 @@ if('serviceWorker' in navigator){
 
 function createCard(element){
 
+    console.log('t&ata');
     let div = document.createElement("div");
     div.className += "col-12 col-sm-6 col-lg-4 col-xl-3";
 
