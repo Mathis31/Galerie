@@ -12,8 +12,6 @@ if('serviceWorker' in navigator){
 
 function createCard(element){
 
-    new Event('parseJson', {'element' : element});
-    console.log('titi');
     let div = document.createElement("div");
     div.className += "col-12 col-sm-6 col-lg-4 col-xl-3";
 
