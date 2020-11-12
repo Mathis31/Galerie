@@ -14,14 +14,6 @@ function loadJsonFile(url) {
     return fetch(url);
 }
 
-loadJsonFile("https://compassionate-lichterman-736604.netlify.app/GalerieRepos/index.json").then(datas => {
-    var container = document.getElementById('container');
-    for(let i = 0; i<6; i++){
-        let div = createCard(datas, i);
-        container.append(div);
-    }
-})
-
 function createCard(datas, i){
     
     let div = document.createElement("div");
@@ -52,3 +44,13 @@ function createCard(datas, i){
     return div;
 
 }
+
+window.addEventListener("DOMContentLoaded", (event) => {
+    loadJsonFile("https://compassionate-lichterman-736604.netlify.app/GalerieRepos/index.json").then(datas => {
+        var container = document.getElementById('container');
+        for(let i = 0; i<6; i++){
+            let div = createCard(datas, i);
+            container.append(div);
+        }
+    })
+});
