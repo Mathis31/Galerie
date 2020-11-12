@@ -30,18 +30,18 @@ function createCard(element){
     divBody.className += "card-body";
 
     let spanAuthor = document.createElement('span');
-    spanAuthor.textContent = element.author;
+    spanAuthor.textContent = "Author : " + element.author;
 
     divBody.append(spanAuthor);
 
     let updated = document.createElement('p');
-    updated.textContent = element.updated;
+    updated.textContent = "Last modified : " + element.updated;
 
     divBody.append(updated);
 
     let description = document.createElement('p');
-    description.className += "card-text p-3";
-    description.textContent = element.description;
+    description.className += "card-text";
+    description.textContent = "Description : " + element.description;
 
     divBody.append(description);
 
