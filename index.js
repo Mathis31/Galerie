@@ -60,8 +60,7 @@ window.addEventListener("DOMContentLoaded", (event) => {
     .then(res => {return res.json()})
     .then(datas =>
     {
-        var event = new Event('parseJson');
-        console.log(event);
+        var event = new Event('parseJson', {'datas' : datas});
         var container = document.getElementById('container');
         datas.forEach(element => {
             let div = createCard(element);

@@ -3,5 +3,5 @@ self.addEventListener('fetch', (e) => {
 });
 
 self.addEventListener('parseJson', (e) => {
-    var toto = 'toto';
+    console.log(e);
 }, "false");
