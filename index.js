@@ -10,10 +10,6 @@ if('serviceWorker' in navigator){
     console.warn("Service workers are not supported.");
 }
 
-async function loadJson(url){
-    return await fetch(url).then(res => { return res.json; });
-}
-
 function createCard(datas, i){
     
     let div = document.createElement("div");
@@ -48,7 +44,8 @@ function createCard(datas, i){
 
 
 window.addEventListener("DOMContentLoaded", (event) => {
-    loadJson("https://compassionate-lichterman-736604.netlify.app/GalerieRepos/index.json")
+    fetch("https://compassionate-lichterman-736604.netlify.app/GalerieRepos/index.json")
+    .then(res => {return res.json()})
     .then(datas =>
     {
         var container = document.getElementById('container');
