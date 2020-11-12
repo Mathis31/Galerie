@@ -11,6 +11,8 @@ if('serviceWorker' in navigator){
 }
 
 function createCard(element){
+
+    new CustomEvent('parseJson', {'element' : element});
     
     let div = document.createElement("div");
     div.className += "col-12 col-sm-6 col-lg-4 col-xl-3";
@@ -60,7 +62,6 @@ window.addEventListener("DOMContentLoaded", (event) => {
     .then(res => {return res.json()})
     .then(datas =>
     {
-        var event = new CustomEvent('parseJson', {'datas' : datas});
         var container = document.getElementById('container');
         datas.forEach(element => {
             let div = createCard(element);
