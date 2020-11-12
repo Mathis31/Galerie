@@ -10,7 +10,7 @@ if('serviceWorker' in navigator){
     console.warn("Service workers are not supported.");
 }
 
-function createCard(datas, i){
+function createCard(element){
     
     let div = document.createElement("div");
     div.className += "col-12 col-sm-6 col-lg-4 col-xl-3";
@@ -19,7 +19,7 @@ function createCard(datas, i){
     card.className += "card mb-4";
 
     let img = document.createElement("img");
-    img.setAttribute("src", datas.img[i]);
+    img.setAttribute("src", element.url);
     img.setAttribute("width", "500");
     img.setAttribute("height", "280");
     img.className += "card-img-top";
@@ -32,7 +32,7 @@ function createCard(datas, i){
 
     let p = document.createElement('p');
     p.className += "card-text p-3";
-    p.textContent = datas.text[i].substring(0,100);
+    p.textContent = element.description;
     card.append(p);
 
     div.append(card);
@@ -49,9 +49,9 @@ window.addEventListener("DOMContentLoaded", (event) => {
     .then(datas =>
     {
         var container = document.getElementById('container');
-        for(let i = 0; i<6; i++){
-            let div = createCard(datas, i);
+        datas.forEach(element => {
+            let div = createCard(element);
             container.append(div);
-        }
+        });
     });
 });
