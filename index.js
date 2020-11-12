@@ -11,16 +11,7 @@ if('serviceWorker' in navigator){
 }
 
 function loadJsonFile(url) {
-    return new Promise(function (resolve, reject) {
-        $.getJSON(url)
-            .done(function (data) {
-                resolve(data);
-            })
-            .fail(function () {
-                reject(Error('Impossible d\'ouvrir le fichier ' + url));
-            })
-        }
-    );
+    return fetch(url);
 }
 
 loadJsonFile("https://compassionate-lichterman-736604.netlify.app/GalerieRepos/index.json").then(datas => {
