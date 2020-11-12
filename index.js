@@ -1,4 +1,4 @@
-/*if('serviceWorker' in navigator){
+if('serviceWorker' in navigator){
     navigator.serviceWorker.register("/sw.js")
     .then((reg) => {
         console.log("votre service worker a été enregistré!");
@@ -8,7 +8,7 @@
     });
 } else {
     console.warn("Service workers are not supported.");
-}*/
+}
 
 function createCard(element){
 
@@ -54,6 +54,8 @@ function createCard(element){
 }
 
 
+
+window.addEventListener("DOMContentLoaded", (event) => {
     fetch("https://compassionate-lichterman-736604.netlify.app/GalerieRepos/index.json")
     .then(res => {return res.json()})
     .then(datas =>
@@ -64,3 +66,4 @@ function createCard(element){
             container.append(div);
         });
     });
+});
