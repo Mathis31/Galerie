@@ -43,15 +43,14 @@ function createCard(datas, i){
 
     return div;
 
-}
+}loadJsonFile("https://compassionate-lichterman-736604.netlify.app/GalerieRepos/index.json").then(datas => {
+    var container = document.getElementById('container');
+    for(let i = 0; i<6; i++){
+        let div = createCard(datas, i);
+        container.append(div);
+    }
+})
 
 window.addEventListener("DOMContentLoaded", (event) => {
-    loadJsonFile("https://compassionate-lichterman-736604.netlify.app/GalerieRepos/index.json").then(datas => {
-        console.log(datas);
-        var container = document.getElementById('container');
-        for(let i = 0; i<6; i++){
-            let div = createCard(datas, i);
-            container.append(div);
-        }
-    })
-});
+    console.log("DOM entièrement chargé et analysé");
+  });
