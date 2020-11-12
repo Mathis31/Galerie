@@ -41,13 +41,16 @@ function createCard(datas, i){
 
 }
 
-fetch("https://compassionate-lichterman-736604.netlify.app/GalerieRepos/index.json").then(datas => {
+fetch("https://compassionate-lichterman-736604.netlify.app/GalerieRepos/index.json")
+.then(res => {return res.json()})
+.then(datas =>
+{
     var container = document.getElementById('container');
     for(let i = 0; i<6; i++){
         let div = createCard(datas, i);
         container.append(div);
     }
-})
+});
 
 window.addEventListener("DOMContentLoaded", (event) => {
     console.log("DOM entièrement chargé et analysé");
