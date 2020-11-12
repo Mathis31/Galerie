@@ -10,8 +10,8 @@ if('serviceWorker' in navigator){
     console.warn("Service workers are not supported.");
 }
 
-function loadJson(url){
-    return fetch(url).then(res => { return res.json; });
+async function loadJson(url){
+    return await fetch(url).then(res => { return res.json; });
 }
 
 function createCard(datas, i){
