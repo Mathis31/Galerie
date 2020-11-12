@@ -2,7 +2,7 @@
     "start_url": "/",
     "scope": "/",
     "name": "Galerie PWA",
-    "display": "minmai-ui",
+    "display": "minmal-ui",
     "orientation":"portrait",
     "icons": [
         {
