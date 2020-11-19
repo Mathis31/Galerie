@@ -78,14 +78,15 @@ function createCard(element) {
 
 // Fetch images
 
+var store = localforage.createInstance({
+    name: 'cardDb'
+});
+
 window.addEventListener('DOMContentLoaded', function() {
 	if (navigator.onLine) {
 		fetch('https://compassionate-lichterman-736604.netlify.app/GalerieRepos/index.json')
 			.then((res) => res.json())
 			.then((datas) => {
-                var store = localforage.createInstance({
-                    name: 'cardDb'
-                });
                 store.setItem('cards', datas);
 				var container = document.getElementById('container');
 				datas.forEach((element) => {
@@ -94,7 +95,7 @@ window.addEventListener('DOMContentLoaded', function() {
 				});
 			});
 	}else{
-        localforage.getItem('cards').then(function(cards) {
+        store.getItem('cards').then(function(cards) {
             console.log(cards);
         });
     }
