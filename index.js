@@ -10,6 +10,8 @@ if('serviceWorker' in navigator){
     console.warn("Service workers are not supported.");
 }
 
+console.log(navigator.onLine);
+
 window.addEventListener('offline', (event) => {
     let divOffline = document.getElementById("divOffline");
     divOffline.style.visibility = "visible";
