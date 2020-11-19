@@ -1,11 +1,11 @@
-/*self.addEventListener('install', (e) => {
+self.addEventListener('install', (e) => {
     e.waitUntil(
         caches.open('cacheGalerie')
         .then(cache => {
             return cache.addAll(['/index.html', '/style.css', '/index.js']);
         })
     ); 
-});*/
+});
 
 self.addEventListener('fetch', (e) => {
     console.log('[Service Worker] Ressource récupérée ' + e.request.url);
@@ -19,7 +19,6 @@ self.addEventListener('fetch', (e) => {
                         updated: j.updated,
                         author: j.author
                     }))
-                    console.log(jsonFormatted);
                     return new Response(JSON.stringify(jsonFormatted));
                 })
             })

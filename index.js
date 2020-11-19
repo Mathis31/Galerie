@@ -12,12 +12,10 @@ if('serviceWorker' in navigator){
 
 console.log(navigator.onLine);
 
-//navigator.offline = true;
-
-/*if(navigator.offline){
+if(!navigator.offline){
     let div = document.getElementById("divOffline");
     div.style.visibility = "visible";
-}*/
+}
 
 function createCard(element){
 
@@ -67,6 +65,7 @@ window.addEventListener("DOMContentLoaded", function() {
     .then((res) => res.json())
     .then((datas) =>
     {
+        console.log(datas);
         var container = document.getElementById('container');
         datas.forEach(element => {
             let div = createCard(element);
