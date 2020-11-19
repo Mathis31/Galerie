@@ -10,6 +10,24 @@ if('serviceWorker' in navigator){
     console.warn("Service workers are not supported.");
 }
 
+if('cache' in window){
+    caches.open('cacheGalerie')
+    .then( (cache) =>{ 
+        cache.addAll(['/index.html', '/style.css', '/index.js']);
+    })
+    .catch((err)=>{console.log(err)}); 
+}
+
+window.addEventListener('offline', (event) => {
+    let divOffline = document.getElementById("divOffline");
+    divOffline.style.visibility = "visible";
+});
+
+window.addEventListener('onLine', (event) => {
+    let divOffline = document.getElementById("divOffline");
+    divOffline.style.visibility = "visible";
+});
+
 console.log(navigator.onLine);
 
 if(navigator.onLine){

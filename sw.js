@@ -1,24 +1,3 @@
-self.addEventListener("activate", event => {
-    console.log("SW: Activation en cours.");
-    event.waitUntil(
-        new Promise((resolve, reject) => {
-            setTimeout(() => {
-                console.log("SW: Activé.");
-                resolve();
-            }, 1000);
-        })
-    );
-});
-
-self.addEventListener('install', (e) => {
-    e.waitUntil(
-        caches.open('cacheGalerie')
-        .then(cache => {
-            return cache.addAll(['/index.html', '/style.css', '/index.js']);
-        })
-    ); 
-});
-
 self.addEventListener('fetch', (e) => {
     console.log(navigator.onLine);
     if(navigator.onLine){
