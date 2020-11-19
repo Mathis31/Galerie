@@ -50,14 +50,51 @@ if('indexedDB'in window){
     var store = localforage.createInstance({
         name: 'cardDb'
     });
-    store.setItem(
-    {
-        "url":"https://via.placeholder.com/500x280.png",
-        "description":"Photo",
-        "author":"Anonyme",
-        "updated":"2020-10-10",
-        "created":"2020-10-10"
-    });
+    store.setItem('cards',
+    [
+        {
+            "url":"https://via.placeholder.com/500x280.png",
+            "description":"Photo",
+            "author":"Anonyme",
+            "updated":"2020-10-10",
+            "created":"2020-10-10"
+        },
+        {
+            "url":"https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Image_created_with_a_mobile_phone.png/1280px-Image_created_with_a_mobile_phone.png",
+            "description":"Photo",
+            "author":"Anonyme",
+            "updated":"2020-10-10",
+            "created":"2020-10-10"
+        },
+        {
+            "url":"https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885_960_720.jpg",
+            "description":"Photo",
+            "author":"Anonyme",
+            "updated":"2020-10-10",
+            "created":"2020-10-10"
+        },
+        {
+            "url":"https://bibliotheques.csdm.qc.ca/files/2018/11/10_banques_dimages_gratuites_libres_de_droits-300x169.jpg",
+            "description":"Photo",
+            "author":"Anonyme",
+            "updated":"2020-10-10",
+            "created":"2020-10-10"
+        },
+        {
+            "url":"https://wp-fr.oberlo.com/wp-content/uploads/sites/4/2019/09/banque-images.jpg",
+            "description":"Photo",
+            "author":"Anonyme",
+            "updated":"2020-10-10",
+            "created":"2020-10-10"
+        },
+        {
+            "url":"https://d1fmx1rbmqrxrr.cloudfront.net/cnet/optim/i/edit/2019/04/eso1644bsmall__w770.jpg",
+            "description":"Photo",
+            "author":"Anonyme",
+            "updated":"2020-10-10",
+            "created":"2020-10-10"
+        }
+    ]);
 }else{
     console.log('API not supported');
 }
