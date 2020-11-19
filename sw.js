@@ -25,9 +25,7 @@ self.addEventListener('fetch', (e) => {
     }
 	e.respondWith(
 		caches.open('cacheGalerie').then((cache) => cache.match(e.request, { ignoreSearch: true })).then((response) => {
-			return response || fetch(e.request).then( (response)  => {
-                return cache.put(request,response);
-            });
+			return response || fetch(e.request)
 		})
 	);
 });

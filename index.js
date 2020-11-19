@@ -20,6 +20,16 @@ window.addEventListener('online', (event) => {
     divOffline.style.visibility = "hidden";
 });
 
+if('cache' in window){
+    caches.open('cacheGalerie')
+    .then( (cache) =>{
+        cache.match(e.request, { ignoreSearch: true }).then((response) => {
+			return response
+		})
+    })
+    .catch( (err) => { console.log(err) }) ; 
+}
+
 function createCard(element){
 
     let div = document.createElement("div");
