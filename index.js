@@ -13,7 +13,6 @@ if('serviceWorker' in navigator){
 navigator.offline = true;
 
 if(navigator.offline){
-    console.log("toto");
     let div = document.getElementById("divOffline");
     div.style.visibility = "visible";
 }

@@ -1,7 +1,7 @@
-self.addEventListener('install', e => {
+self.addEventListener('install', (e) => {
+    console.log("Mise en cache");
     e.waitUntil(caches.open('cacheGalerie')
     .then(cache => {
-        console.log("Mise en cache");
         return cache.addAll(['/index.html', '/style.css', '/index.js']);
     })); 
 });
