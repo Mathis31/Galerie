@@ -1,4 +1,7 @@
+// Set service worker
+
 if('serviceWorker' in navigator){
+
     navigator.serviceWorker.register("/sw.js")
     .then((reg) => {
         console.log("Votre service worker a été enregistré!");
@@ -6,18 +9,26 @@ if('serviceWorker' in navigator){
     .catch((error) => {
         console.error(error);
     });
-} else {
+
+} 
+
+else {
     console.warn("Service workers are not supported.");
 }
 
+// For cache
+
 if('cache' in window){
-    console.log('coucou');
     caches.open('cacheGalerie')
     .then( (cache) =>{ 
         cache.addAll(['/', '/index.html', '/style.css', '/index.js']);
     })
     .catch((err)=>{console.log(err)}); 
 }
+
+
+// Set badge if offline or not
+
 
 window.addEventListener('offline', (event) => {
     let divOffline = document.getElementById("divOffline");
@@ -36,6 +47,57 @@ if(navigator.onLine){
     let divOffline = document.getElementById("divOffline");
     divOffline.style.visibility = "visible";
 }
+
+// Create database
+
+if('indexedDB'in window){
+
+    const dbName = "cardDatabase";
+
+    var request = indexedDB.open(dbName, 2);
+
+    request.onerror = function(event) {
+        // Gestion des erreurs.
+    };
+
+    request.onupgradeneeded = function(event) {
+
+        var db = event.target.result;
+
+        var objectStore = db.createObjectStore("card", { keyPath: "ssn" });
+
+        objectStore.createIndex("url", "url", { unique: false });
+
+        objectStore.transaction.oncomplete = function(event) {
+
+            var cardObjectStore = db.transaction("cards", "readwrite").objectStore("cards");
+
+            for (var i in customerData) {
+
+                cardObjectStore.add(
+                    {
+                        "url":"https://via.placeholder.com/500x280.png",
+                        "description":"Photo",
+                        "author":"Anonyme",
+                        "updated":"2020-10-10",
+                        "created":"2020-10-10"
+                    }
+                );
+
+            }
+
+        }
+
+    };
+
+    console.log(cardObjectStore.getAll());
+
+}else{
+    console.log('API not supported');
+}
+
+// Create card element for images, description, author, updated...
+
 
 function createCard(element){
 
@@ -80,15 +142,25 @@ function createCard(element){
 
 }
 
+
+// Fetch images
+
+
 window.addEventListener("DOMContentLoaded", function() {
-    fetch("https://compassionate-lichterman-736604.netlify.app/GalerieRepos/index.json")
-    .then((res) => res.json())
-    .then((datas) =>
-    {
-        var container = document.getElementById('container');
-        datas.forEach(element => {
-            let div = createCard(element);
-            container.append(div);
+
+    if(navigator.onLine){
+
+        fetch("https://compassionate-lichterman-736604.netlify.app/GalerieRepos/index.json")
+        .then((res) => res.json())
+        .then((datas) =>
+        {
+            var container = document.getElementById('container');
+            datas.forEach(element => {
+                let div = createCard(element);
+                container.append(div);
+            });
         });
-    });
+
+    }
+
 });
