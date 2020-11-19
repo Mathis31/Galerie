@@ -25,7 +25,7 @@ window.addEventListener('offline', (event) => {
 
 window.addEventListener('onLine', (event) => {
     let divOffline = document.getElementById("divOffline");
-    divOffline.style.visibility = "visible";
+    divOffline.style.visibility = "hidden";
 });
 
 console.log(navigator.onLine);
