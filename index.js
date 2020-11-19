@@ -10,7 +10,7 @@ if('serviceWorker' in navigator){
     console.warn("Service workers are not supported.");
 }
 
-navigator.offline = false;
+navigator.offline = true;
 
 if(navigator.offline){
     console.log("toto");
