@@ -1,3 +1,5 @@
+let cacheGalerieVersion = "v0.1";
+
 self.addEventListener('fetch', (e) => {
     if(navigator.onLine){
         console.log('[Service Worker] Ressource récupérée ' + e.request.url);
@@ -32,3 +34,19 @@ self.addEventListener('fetch', (e) => {
         ); 
     }
 });
+
+self.addEventListener('activate', function(e){
+
+    let cacheGalerie = [cacheGalerieVersion];
+
+    e.waitUntil(
+        caches.keys().then(function(keyList) {
+            return Promise.all(keyList.map(function(key){
+                if(cacheGalerie.indexOf(key) === -1){
+                    return caches.delete(key);
+                }
+            }))
+        })
+    )
+
+})
