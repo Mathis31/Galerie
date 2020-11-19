@@ -1,3 +1,8 @@
+window.addEventListener('offline', (event) => {
+    let div = document.getElementById("divOffline");
+    div.style.visibility = "visible";
+});
+
 if('serviceWorker' in navigator){
     navigator.serviceWorker.register("/sw.js")
     .then((reg) => {
@@ -10,14 +15,13 @@ if('serviceWorker' in navigator){
     console.warn("Service workers are not supported.");
 }
 
-navigator.offline = false;
-navigator.onLine = true;
-
-console.log(navigator.onLine);
-
-if(!navigator.onLine){
-    let div = document.getElementById("divOffline");
-    div.style.visibility = "visible";
+if('cache' in window){
+    caches.open('cacheGalerie')
+    .then( (cache) =>{ 
+        console.log("from cache");
+        cache.addAll(['/index.html', '/style.css', '/index.js']);
+    })
+    .catch( (err) =>{ console.log(err) } );
 }
 
 function createCard(element){
