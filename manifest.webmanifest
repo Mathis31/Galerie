@@ -51,7 +51,7 @@
             "purpose":"maskable"
         },
         {
-            "src": "images/icons/500.png",
+            "src": "images/icons/500x500.png",
             "sizes": "500x500",
             "type": "image/png",
             "purpose":"maskable"
