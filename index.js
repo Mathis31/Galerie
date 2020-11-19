@@ -10,6 +10,11 @@ if('serviceWorker' in navigator){
     console.warn("Service workers are not supported.");
 }
 
+if(navigator.offline){
+    let div = document.getElementById("divOffline");
+    div.style.visibility = "visible";
+}
+
 function createCard(element){
 
     let div = document.createElement("div");
@@ -52,8 +57,6 @@ function createCard(element){
     return div;
 
 }
-
-
 
 window.addEventListener("DOMContentLoaded", function() {
     fetch("https://compassionate-lichterman-736604.netlify.app/GalerieRepos/index.json")
