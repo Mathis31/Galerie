@@ -47,7 +47,7 @@ if (navigator.onLine) {
 }
 
 if('indexedDB'in window){
-    localForageddb.setItem('item', 'value');
+    localForage.setItem('item', 'value');
 }else{
     console.log('API not supported');
 }
