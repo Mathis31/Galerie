@@ -156,6 +156,6 @@ window.addEventListener('DOMContentLoaded', function() {
 				});
 			});
 	}else{
-        console.log(localforage.getAll('cards'));
+        console.log(localforage.getItem('cards'));
     }
 });
