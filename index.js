@@ -10,6 +10,8 @@ if('serviceWorker' in navigator){
     console.warn("Service workers are not supported.");
 }
 
+navigator.offline = false;
+
 if(navigator.offline){
     console.log("toto");
     let div = document.getElementById("divOffline");
