@@ -1,4 +1,35 @@
 let cacheGalerieVersion = "v0.1";
+var cacheName = 'cacheGalerie';
+
+var files = [
+    '/', 
+    '/index.html', 
+    '/style.css', 
+    '/index.js',  
+    'https://code.jquery.com/jquery-3.5.1.min.js',
+    'https://cdnjs.cloudflare.com/ajax/libs/localforage/1.7.3/localforage.min.js',
+    'https://cdn.jsdelivr.net/npm/pwacompat@2.0.9/pwacompat.min.js',
+    'https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css',
+    '/images/icons/72x72.png',
+    '/images/icons/96x96.png',
+    '/images/icons/128x128.png',
+    '/images/icons/144x144.png',
+    '/images/icons/152x152.png',
+    '/images/icons/192x192.png',
+    '/images/icons/384x384.png',
+    '/images/icons/500x500.png',
+];
+
+// Listen to installation event
+self.addEventListener('install', function(e) {
+  console.log('[ServiceWorker] Install');
+  e.waitUntil(
+    caches.open(cacheName).then(function(cache) {
+      console.log('[ServiceWorker] Caching app shell');
+      return cache.addAll(files);
+    })
+  );
+});
 
 self.addEventListener('fetch', (e) => {
 
@@ -7,7 +38,7 @@ self.addEventListener('fetch', (e) => {
         console.log('[Service Worker] Ressource récupérée ' + e.request.url);
 
         fetch(e.request).then( (response) => { 
-            caches.open('cacheGalerie')
+            caches.open(cacheName)
             .then(cache => {
                 return cache.put(e.request,response);
             })
@@ -39,7 +70,7 @@ self.addEventListener('fetch', (e) => {
 
         e.respondWith(
 
-            caches.open('cacheGalerie')
+            caches.open(cacheName)
             .then( (cache) => cache.match(e.request) )
             .then( function(response){
                 return response || fetch(e.request);

@@ -13,37 +13,6 @@ if ('serviceWorker' in navigator) {
 	console.warn('Service workers are not supported.');
 }
 
-// For cache
-
-if ('cache' in window) {
-	caches
-		.open('cacheGalerie')
-		.then((cache) => {
-			cache.addAll([
-                '/', 
-                '/index.html', 
-                '/style.css', 
-                '/index.js',  
-                'https://code.jquery.com/jquery-3.5.1.min.js',
-                'https://cdnjs.cloudflare.com/ajax/libs/localforage/1.7.3/localforage.min.js',
-                'https://cdn.jsdelivr.net/npm/pwacompat@2.0.9/pwacompat.min.js',
-                'https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css',
-                '/images/icons/72x72.png',
-                '/images/icons/96x96.png',
-                '/images/icons/128x128.png',
-                '/images/icons/144x144.png',
-                '/images/icons/152x152.png',
-                '/images/icons/192x192.png',
-                '/images/icons/384x384.png',
-                '/images/icons/500x500.png',
-
-            ]);
-		})
-		.catch((err) => {
-			console.log(err);
-		});
-}
-
 // Set badge if offline or not
 
 window.addEventListener('offline', (event) => {
