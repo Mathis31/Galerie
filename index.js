@@ -10,13 +10,15 @@ if('serviceWorker' in navigator){
     console.warn("Service workers are not supported.");
 }
 
-let divOffline = document.getElementById("divOffline");
-
-if(!navigator.onLine){
+window.addEventListener('offline', (event) => {
+    let divOffline = document.getElementById("divOffline");
     divOffline.style.visibility = "visible";
-}else{
+});
+
+window.addEventListener('online', (event) => {
+    let divOffline = document.getElementById("divOffline");
     divOffline.style.visibility = "hidden";
-}
+});
 
 function createCard(element){
 
