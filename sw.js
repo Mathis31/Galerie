@@ -33,7 +33,7 @@ self.addEventListener('fetch', (e) => {
 		});
 	} else {
 		e.respondWith(
-			caches.open('nom_du_cache').then((cache) => cache.match(e.request)).then(function(response) {
+			caches.open('cacheGalerie').then((cache) => cache.match(e.request)).then(function(response) {
 				return response || fetch(e.request);
 			})
 		);
