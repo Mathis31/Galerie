@@ -10,16 +10,7 @@ self.addEventListener('install', (e) => {
 self.addEventListener('activate', (event) => {
     console.info('Event: Activate');
     event.waitUntil(
-        self.clients.claim(),
-        caches.keys().then((cacheNames) => {
-            return Promise.all(
-                cacheNames.map((cache) => {
-                    if (cache !== cacheName) {
-                        return caches.delete(cache);
-                    }
-                })
-            );
-        })
+        self.clients.claim()
     );
 });
 
