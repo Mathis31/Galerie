@@ -7,13 +7,6 @@ self.addEventListener('install', (e) => {
     ); 
 });
 
-self.addEventListener('activate', (event) => {
-    console.info('Event: Activate');
-    event.waitUntil(
-        self.clients.claim()
-    );
-});
-
 self.addEventListener('fetch', (e) => {
     console.log(navigator.onLine);
     if(navigator.onLine){
