@@ -14,7 +14,7 @@ if('cache' in window){
     console.log('coucou');
     caches.open('cacheGalerie')
     .then( (cache) =>{ 
-        cache.addAll(['/', '/index.html', '/style.css', '/index.js']);
+        cache.addAll(['/', '/index.html', '/style.css', '/index.js', '/GalerieRespos/index.json', '/manifest.webmanifest', '/sw.js']);
     })
     .catch((err)=>{console.log(err)}); 
 }
