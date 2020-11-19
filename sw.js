@@ -11,8 +11,7 @@ self.addEventListener('fetch', (e) => {
 	if (navigator.onLine) {
 		caches.open('cacheGalerie').then((cache) => {
 			if (e.request.url === 'https://compassionate-lichterman-736604.netlify.app/GalerieRepos/index.json') {
-				e.respondWith(
-					fetch(e.request).then(async (response) => {
+					const promiseChain = fetch(e.request).then(async (response) => {
 						cache.add(response);
 						return response.json().then((json) => {
 							const jsonFormatted = json.map((j) => ({
@@ -23,8 +22,9 @@ self.addEventListener('fetch', (e) => {
 							}));
 							return new Response(JSON.stringify(jsonFormatted));
 						});
-					})
-				);
+                    });
+                    
+				    e.respondWith(promiseChain);
 			} else {
 				fetch(e.request).then((response) => {
 					return cache.add(response);
