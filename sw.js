@@ -30,7 +30,9 @@ self.addEventListener('fetch', (e) => {
                     )
                 }
                 else{
-                    return cache.add(response);
+                    fetch(e.request).then( (response) => {
+                        return cache.add(response);
+                    });
                 }
             })
         ); 
