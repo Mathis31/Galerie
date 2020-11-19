@@ -1,13 +1,15 @@
-if('serviceWorker' in navigator){
-    navigator.serviceWorker.register("/sw.js")
-    .then((reg) => {
-        console.log("Votre service worker a été enregistré!");
-    })
-    .catch((error) => {
-        console.error(error);
-    });
-} else {
-    console.warn("Service workers are not supported.");
+if(navigator.onLine){
+    if('serviceWorker' in navigator){
+        navigator.serviceWorker.register("/sw.js")
+        .then((reg) => {
+            console.log("Votre service worker a été enregistré!");
+        })
+        .catch((error) => {
+            console.error(error);
+        });
+    } else {
+        console.warn("Service workers are not supported.");
+    }
 }
 
 window.addEventListener('offline', (event) => {
