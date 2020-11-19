@@ -23,7 +23,7 @@ window.addEventListener('offline', (event) => {
     divOffline.style.visibility = "visible";
 });
 
-window.addEventListener('onLine', (event) => {
+window.addEventListener('online', (event) => {
     let divOffline = document.getElementById("divOffline");
     divOffline.style.visibility = "hidden";
 });
