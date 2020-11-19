@@ -8,6 +8,7 @@ self.addEventListener('install', (e) => {
 });
 
 self.addEventListener('fetch', (e) => {
+    console.log(navigator.onLine);
     if(navigator.onLine){
         console.log('[Service Worker] Ressource récupérée ' + e.request.url);
         fetch(e.request).then( (response) => { 
