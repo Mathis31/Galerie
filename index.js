@@ -1,5 +1,3 @@
-import localForage from 'localforage';
-
 // Set service worker
 
 if ('serviceWorker' in navigator) {
@@ -49,7 +47,7 @@ if (navigator.onLine) {
 }
 
 if('indexedDB'in window){
-    localForage.setItem('item', 'value');
+    localforage.setItem('item', 'value');
 }else{
     console.log('API not supported');
 }
