@@ -95,16 +95,6 @@ function createCard(element) {
 	return div;
 }
 
-
-// Create database
-
-if ('indexedDB' in window) {
-    openDb();
-    getAll();
-} else {
-	console.log('API not supported');
-}
-
 // Fetch images
 
 window.addEventListener('DOMContentLoaded', function() {
