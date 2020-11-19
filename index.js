@@ -10,6 +10,8 @@ if('serviceWorker' in navigator){
     console.warn("Service workers are not supported.");
 }
 
+console.log(navigator.offline);
+
 //navigator.offline = true;
 
 /*if(navigator.offline){
