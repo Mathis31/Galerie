@@ -72,23 +72,20 @@ if('indexedDB'in window){
 
             var cardObjectStore = db.transaction("cards", "readwrite").objectStore("card");
 
-            for (var i in customerData) {
-
-                cardObjectStore.add(
-                    {
+            cardObjectStore.add(
+                {
                         "url":"https://via.placeholder.com/500x280.png",
                         "description":"Photo",
                         "author":"Anonyme",
                         "updated":"2020-10-10",
                         "created":"2020-10-10"
-                    }
-                );
+                }
+            );
 
-            }
+            
+            console.log(cardObjectStore.getAll());
 
         }
-
-        console.log(db);
 
     };
 
