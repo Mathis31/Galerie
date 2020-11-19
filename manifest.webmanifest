@@ -4,54 +4,54 @@
     "theme_color": "#187795",
     "background_color": "#fff",
     "display": "minimal-ui",
-    "orientation":"portrait",
+    "orientation": "portrait",
     "Scope": "/",
-    "start_url": "/sw.js",
+    "start_url": "/",
     "icons": [
         {
-            "src": "https://via.placeholder.com/72x72.png",
+            "src": "images/icons/72x72.png",
             "sizes": "72x72",
             "type": "image/png",
             "purpose":"maskable"
         },
         {
-            "src": "https://via.placeholder.com/96x96.png",
+            "src": "images/icons/96x96.png",
             "sizes": "96x96",
             "type": "image/png",
             "purpose":"maskable"
         },
         {
-            "src": "https://via.placeholder.com/128x128.png",
+            "src": "images/icons/128x128.png",
             "sizes": "128x128",
             "type": "image/png",
             "purpose":"maskable"
         },
         {
-            "src": "https://via.placeholder.com/144x144.png",
+            "src": "images/icons/144x144.png",
             "sizes": "144x144",
             "type": "image/png",
             "purpose":"maskable"
         },
         {
-            "src": "https://via.placeholder.com/152x152.png",
+            "src": "images/icons/152x152.png",
             "sizes": "152x152",
             "type": "image/png",
             "purpose":"maskable"
         },
         {
-            "src": "https://via.placeholder.com/192x192.png",
+            "src": "images/icons/192x192.png",
             "sizes": "192x192",
             "type": "image/png",
             "purpose":"maskable"
         },
         {
-            "src": "https://via.placeholder.com/384x384.png",
+            "src": "images/icons/384x384.png",
             "sizes": "384x384",
             "type": "image/png",
             "purpose":"maskable"
         },
         {
-            "src": "https://via.placeholder.com/500.png",
+            "src": "images/icons/500.png",
             "sizes": "500x500",
             "type": "image/png",
             "purpose":"maskable"
