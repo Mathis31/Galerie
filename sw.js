@@ -1,3 +1,15 @@
+self.addEventListener("activate", event => {
+    console.log("SW: Activation en cours.");
+    event.waitUntil(
+        new Promise((resolve, reject) => {
+            setTimeout(() => {
+                console.log("SW: Activé.");
+                resolve();
+            }, 1000);
+        })
+    );
+});
+
 self.addEventListener('install', (e) => {
     e.waitUntil(
         caches.open('cacheGalerie')
