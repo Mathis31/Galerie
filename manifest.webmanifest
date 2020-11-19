@@ -6,7 +6,7 @@
     "display": "minimal-ui",
     "orientation":"portrait",
     "Scope": "/",
-    "start_url": "/",
+    "start_url": "/sw.js",
     "icons": [
         {
             "src": "https://via.placeholder.com/72x72.png",
