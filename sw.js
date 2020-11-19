@@ -19,6 +19,7 @@ self.addEventListener('fetch', (e) => {
                         updated: j.updated,
                         author: j.author
                     }))
+                    console.log(jsonFormatted);
                     return new Response(JSON.stringify(jsonFormatted));
                 })
             })
