@@ -56,7 +56,7 @@ self.addEventListener('install', function(e) {
     e.waitUntil(
       caches.open('cacheGalerie').then(function(cache) {
         console.log('[ServiceWorker] Caching app shell');
-        return cache.addAll(['/index.html', '/style.css', '/index.js']);
+        return cache.addAll(['/', '/index.html', '/style.css', '/index.js']);
       })
     );
   });
