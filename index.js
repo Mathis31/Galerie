@@ -12,10 +12,10 @@ if('serviceWorker' in navigator){
 
 //navigator.offline = true;
 
-if(navigator.offline){
+/*if(navigator.offline){
     let div = document.getElementById("divOffline");
     div.style.visibility = "visible";
-}
+}*/
 
 function createCard(element){
 

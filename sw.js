@@ -1,11 +1,11 @@
-self.addEventListener('install', (e) => {
+/*self.addEventListener('install', (e) => {
     e.waitUntil(
         caches.open('cacheGalerie')
         .then(cache => {
             return cache.addAll(['/index.html', '/style.css', '/index.js']);
         })
     ); 
-});
+});*/
 
 self.addEventListener('fetch', (e) => {
     caches.open('cacheGalerie').then(cache=>cache.match(e.request.url)).then(function (response){console.log("From cache " + response);});
