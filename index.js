@@ -156,7 +156,7 @@ window.addEventListener('DOMContentLoaded', function() {
 				});
 			});
 	}else{
-        localforage.getItem('cards', function(cards){
+        localForage.getItem('cards').then(function(cards) {
             console.log(cards);
         });
     }
