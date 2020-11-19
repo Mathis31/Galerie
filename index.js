@@ -87,17 +87,20 @@ window.addEventListener('DOMContentLoaded', function() {
 		fetch('https://compassionate-lichterman-736604.netlify.app/GalerieRepos/index.json')
 			.then((res) => res.json())
 			.then((datas) => {
-                console.log('From fetch');
                 store.setItem('cards', datas);
 				var container = document.getElementById('container');
 				datas.forEach((element) => {
 					let div = createCard(element);
 					container.append(div);
-				});
+                });
+                console.log('From fetch');
 			});
 	}else{
         store.getItem('cards').then(function(cards) {
-            console.log(cards);
+            cards.forEach((element) => {
+                let div = createCard(element);
+                container.append(div);
+            });
             console.log('From localforage');
         });
     }
