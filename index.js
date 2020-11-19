@@ -10,7 +10,7 @@ if('serviceWorker' in navigator){
     console.warn("Service workers are not supported.");
 }
 
-console.log(navigator.onLine);
+navigator.onLine = false;
 
 if(!navigator.onLine){
     let div = document.getElementById("divOffline");
@@ -65,7 +65,6 @@ window.addEventListener("DOMContentLoaded", function() {
     .then((res) => res.json())
     .then((datas) =>
     {
-        console.log(datas);
         var container = document.getElementById('container');
         datas.forEach(element => {
             let div = createCard(element);
