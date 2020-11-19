@@ -2,7 +2,7 @@
     "start_url": "/",
     "scope": "/",
     "name": "Galerie PWA",
-    "display": "minmal-ui",
+    "display": "standalone",
     "orientation":"portrait",
     "icons": [
         {
