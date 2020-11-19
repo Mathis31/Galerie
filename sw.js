@@ -2,7 +2,7 @@ self.addEventListener('install', (e) => {
     e.waitUntil(
         caches.open('cacheGalerie')
         .then(cache => {
-            return cache.addAll(['/index.html', '/style.css', '/index.js']);
+            return cache.addAll(['/index.html', '/style.css', '/index.js']).then(() => self.skipWaiting());
         })
     ); 
 });
