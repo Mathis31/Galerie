@@ -86,9 +86,9 @@ if('indexedDB'in window){
 
             }
 
-            console.log(cardObjectStore.getAll());
-
         }
+
+        console.log(db);
 
     };
 
