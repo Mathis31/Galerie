@@ -47,7 +47,17 @@ if (navigator.onLine) {
 }
 
 if('indexedDB'in window){
-    localforage.setItem('item', 'value');
+    var store = localforage.createInstance({
+        name: 'cardDb'
+    });
+    store.setItem(
+    {
+        "url":"https://via.placeholder.com/500x280.png",
+        "description":"Photo",
+        "author":"Anonyme",
+        "updated":"2020-10-10",
+        "created":"2020-10-10"
+    });
 }else{
     console.log('API not supported');
 }
