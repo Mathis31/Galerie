@@ -12,7 +12,7 @@ if('serviceWorker' in navigator){
 
 console.log(navigator.onLine);
 
-if(!navigator.offline){
+if(!navigator.onLine){
     let div = document.getElementById("divOffline");
     div.style.visibility = "visible";
 }
