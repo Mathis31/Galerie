@@ -3,7 +3,6 @@ var cacheName = 'cacheGalerie';
 
 var files = [
     '/',
-    'https://compassionate-lichterman-736604.netlify.app/',
     '/index.html', 
     '/style.css', 
     '/index.js',  
