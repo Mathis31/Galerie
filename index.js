@@ -1,8 +1,3 @@
-window.addEventListener('offline', (event) => {
-    let div = document.getElementById("divOffline");
-    div.style.visibility = "visible";
-});
-
 if('serviceWorker' in navigator){
     navigator.serviceWorker.register("/sw.js")
     .then((reg) => {
@@ -15,13 +10,12 @@ if('serviceWorker' in navigator){
     console.warn("Service workers are not supported.");
 }
 
-if('cache' in window){
-    caches.open('cacheGalerie')
-    .then( (cache) =>{ 
-        console.log("from cache");
-        cache.addAll(['/index.html', '/style.css', '/index.js']);
-    })
-    .catch( (err) =>{ console.log(err) } );
+let divOffline = document.getElementById("divOffline");
+
+if(!navigator.onLine){
+    divOffline.style.visibility = "visible";
+}else{
+    divOffline.style.visibility = "hidden";
 }
 
 function createCard(element){
