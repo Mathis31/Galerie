@@ -46,43 +46,10 @@ if (navigator.onLine) {
 	divOffline.style.visibility = 'visible';
 }
 
-const DB_NAME = 'cardDb';
-const DB_VERSION = 1; 
- const DB_STORE_NAME = 'cards';
-
-function openDb() {
-	console.log("openDb ...");
-    var req = indexedDB.open(DB_NAME, DB_VERSION);
-    req.onsuccess = function (evt) {
-      db = this.result;
-      console.log("openDb DONE");
-    };
-    req.onerror = function (evt) {
-      console.error("openDb:", evt.target.errorCode);
-    };
-
-    req.onupgradeneeded = function (evt) {
-        console.log("openDb.onupgradeneeded");
-        var store = evt.currentTarget.result.createObjectStore(
-            DB_STORE_NAME, { keyPath: 'id', autoIncrement: true }
-        );
-
-      store.createIndex('url', 'url', { unique: true });
-      store.createIndex('description', 'description', { unique: false });
-      store.createIndex('author', 'author', { unique: false });
-      store.createIndex('updated', 'updated', { unique: false });
-      store.createIndex('created', 'created', { unique: false });
-    };
-}
-
-function getObjectStore(store_name, mode) {
-    var tx = db.transaction(store_name, mode);
-    return tx.objectStore(store_name);
-}
-
-function getAll(){
-    var store = getObjectStore(DB_STORE_NAME, 'readwrite');
-    console.log(store.getAll());
+if('indexedDB'in window){
+    localForageddb.setItem('item', 'value');
+}else{
+    console.log('API not supported');
 }
 
 // Create card element for images, description, author, updated...
