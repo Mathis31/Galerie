@@ -1,3 +1,5 @@
+import localForage from 'localforage';
+
 // Set service worker
 
 if ('serviceWorker' in navigator) {
