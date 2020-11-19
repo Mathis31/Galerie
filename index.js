@@ -87,6 +87,7 @@ window.addEventListener('DOMContentLoaded', function() {
 		fetch('https://compassionate-lichterman-736604.netlify.app/GalerieRepos/index.json')
 			.then((res) => res.json())
 			.then((datas) => {
+                console.log('From fetch');
                 store.setItem('cards', datas);
 				var container = document.getElementById('container');
 				datas.forEach((element) => {
@@ -97,6 +98,7 @@ window.addEventListener('DOMContentLoaded', function() {
 	}else{
         store.getItem('cards').then(function(cards) {
             console.log(cards);
+            console.log('From localforage');
         });
     }
 });
