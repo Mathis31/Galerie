@@ -8,7 +8,7 @@ self.addEventListener('install', (e) => {
 
 self.addEventListener('fetch', (e) => {
 	console.log('[Service Worker] Ressource récupérée ' + e.request.url);
-	if (e.request.url === 'https://compassionate-lichterman-736604.netlify.app/GalerieRepos/index.json') {
+	/*if (e.request.url === 'https://compassionate-lichterman-736604.netlify.app/GalerieRepos/index.json') {
 		e.respondWith(
 			fetch(e.request).then(async (response) => {
 				return response.json().then((json) => {
@@ -22,7 +22,7 @@ self.addEventListener('fetch', (e) => {
 				});
 			})
 		);
-    }
+    }*/
 	e.respondWith(
 		caches.open('cacheGalerie').then((cache) => cache.match(e.request, { ignoreSearch: true })).then((response) => {
 			return response || fetch(e.request)
