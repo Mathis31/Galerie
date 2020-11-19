@@ -1,12 +1,14 @@
 self.addEventListener('install', (e) => {
-    console.log("Mise en cache");
-    e.waitUntil(caches.open('cacheGalerie')
-    .then(cache => {
-        return cache.addAll(['/index.html', '/style.css', '/index.js']);
-    })); 
+    e.waitUntil(
+        caches.open('cacheGalerie')
+        .then(cache => {
+            return cache.addAll(['/index.html', '/style.css', '/index.js']);
+        })
+    ); 
 });
 
 self.addEventListener('fetch', (e) => {
+    caches.open('cacheGalerie').then(cache=>cache.match(e.request.url)).then(function (response){console.log("From cache " + response);});
     console.log('[Service Worker] Ressource récupérée ' + e.request.url);
     if(e.request.url === "https://compassionate-lichterman-736604.netlify.app/GalerieRepos/index.json"){
         e.respondWith(
