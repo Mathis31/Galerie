@@ -11,9 +11,10 @@ if('serviceWorker' in navigator){
 }
 
 if('cache' in window){
+    console.log('coucou');
     caches.open('cacheGalerie')
     .then( (cache) =>{ 
-        cache.addAll(['/index.html', '/style.css', '/index.js']);
+        cache.addAll(['/', '/index.html', '/style.css', '/index.js']);
     })
     .catch((err)=>{console.log(err)}); 
 }
