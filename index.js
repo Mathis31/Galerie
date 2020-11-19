@@ -86,11 +86,11 @@ if('indexedDB'in window){
 
             }
 
+            console.log(cardObjectStore.getAll());
+
         }
 
     };
-
-    console.log(cardObjectStore.getAll());
 
 }else{
     console.log('API not supported');
