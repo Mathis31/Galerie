@@ -70,7 +70,7 @@ if('indexedDB'in window){
 
         objectStore.transaction.oncomplete = function(event) {
 
-            var cardObjectStore = db.transaction("cards", "readwrite").objectStore("cards");
+            var cardObjectStore = db.transaction("cards", "readwrite").objectStore("card");
 
             for (var i in customerData) {
 
