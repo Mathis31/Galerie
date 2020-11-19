@@ -52,46 +52,40 @@ if(navigator.onLine){
 
 if('indexedDB'in window){
 
-    const dbName = "cardDatabase";
+    const ddb = idb.openDB('cardsTable', {autoincrement:true});
 
-    var request = indexedDB.open(dbName, 2);
-
-    request.onerror = function(event) {
-        // Gestion des erreurs.
-    };
-
-    request.onupgradeneeded = function(event) {
-
-        var db = event.target.result;
-
-        var objectStore = db.createObjectStore("card", { keyPath: "ssn" });
-
-        objectStore.createIndex("url", "url", { unique: false });
-
-        objectStore.transaction.oncomplete = function(event) {
-
-            var cardObjectStore = db.transaction("cards", "readwrite").objectStore("card");
-
-            cardObjectStore.add(
-                {
-                        "url":"https://via.placeholder.com/500x280.png",
-                        "description":"Photo",
-                        "author":"Anonyme",
-                        "updated":"2020-10-10",
-                        "created":"2020-10-10"
-                }
-            );
-
-            
-            console.log(cardObjectStore.getAll());
-
+    const trans = ddb.transaction('objet', 'readwrite');
+    
+    const objet = trans.objectStore('objet');
+    
+    objet.add(
+        {
+            "url":"https://via.placeholder.com/500x280.png",
+            "description":"Photo",
+            "author":"Anonyme",
+            "updated":"2020-10-10",
+            "created":"2020-10-10"
         }
-
-    };
+    );
+    
+    return trans.complete;
 
 }else{
     console.log('API not supported');
 }
+
+dbPromise.then(function(ddb){
+    const trans= ddb.transaction('objet', 'readwrite');
+    const objet = trans.objectStore('objet');
+    return trans.openCursor()
+})
+.then(function displayItem(cursor){
+    if(!cursor){
+        return;
+    }
+    console.log(cursor.value);
+    cursor.coninue.then(displayItem);
+}); 
 
 // Create card element for images, description, author, updated...
 
