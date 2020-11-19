@@ -10,7 +10,12 @@ self.addEventListener('install', (e) => {
 self.addEventListener('fetch', (e) => {
     if(navigator.onLine){
         console.log('[Service Worker] Ressource récupérée ' + e.request.url);
-        fetch(e.request).then(response=>{return cache.put(e.request,response);}); 
+        fetch(e.request).then( (response) => { 
+            caches.open('cacheGalerie')
+            .then(cache => {
+                return cache.put(e.request,response);
+            })
+        }); 
         if(e.request.url === "https://compassionate-lichterman-736604.netlify.app/GalerieRepos/index.json"){
             e.respondWith(
                 fetch(e.request).then(async (response) => {
