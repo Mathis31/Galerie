@@ -155,5 +155,7 @@ window.addEventListener('DOMContentLoaded', function() {
 					container.append(div);
 				});
 			});
-	}
+	}else{
+        console.log(localforage.getAll('cards'));
+    }
 });
