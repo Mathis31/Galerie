@@ -28,8 +28,6 @@ window.addEventListener('online', (event) => {
     divOffline.style.visibility = "hidden";
 });
 
-console.log(navigator.onLine);
-
 if(navigator.onLine){
     let divOffline = document.getElementById("divOffline");
     divOffline.style.visibility = "hidden";
