@@ -14,5 +14,9 @@ module.exports = {
     },
     plugins: [
         new HtmlWebpackPlugin({template: './index.html'}),
+        new WorkboxPlugin.GenerateSW({
+            clientsClaim: true,
+            skipWaiting: true,
+        }),
     ]
 };
